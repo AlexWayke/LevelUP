@@ -11,15 +11,14 @@ body {
     font-size: 10px;
 }
 .wrapper {
-    background-color: #202027;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 .container {
-    width: 1200px;
-    padding: 0 15px;
+    max-width: 1200px;
+    padding: 70px 15px;
     margin: 0 auto;
     z-index: 20;
 }
@@ -39,7 +38,6 @@ body {
     display: flex;
     position: relative;
     overflow: hidden;
-    padding: 70px 0;
 
     // shadow
     &::after{
@@ -158,6 +156,93 @@ body {
                 height: 100%;
                 object-fit: cover;
             }
+        }
+    }
+}
+
+// structure ===========================
+.structure {  
+    background-color: #341b36;
+    z-index: 20;
+    position: relative;
+    padding: 0 15px;
+
+    &-wrapper {
+    }
+    &-items {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+    }
+    &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        margin-bottom: 30px;
+        
+        text-align: center;
+        &--img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            & img {
+                object-fit: cover;
+            }
+        }
+        &--name {
+            font-size: 1.8em;
+        }
+}
+    &-product {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            width: 250px;
+            margin-bottom: 30px;
+        }
+    }
+    @media (max-width:761px) {
+        &-item--img {
+            width: 150px;
+            height: 150px;
+        }
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        &-product {
+            position: relative;
+            margin-bottom: 30px;
+        }
+    }
+    @media (max-width:511px) {
+        &-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;       
+        }
+        &-items {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        &-item--name {
+            width: 200px;
+        }
+    }
+    @media (max-width:451px) {
+        &-item {
+            flex-direction: column;   
         }
     }
 }
