@@ -1,7 +1,6 @@
-$(document).ready(function(){
-    $('.slider').slick({
-        infinite: false,
-        adaptiveHeight: true,
-        speed: 500
-    });
-});
+const toBottomBtns = $(".btn-to-form");
+toBottomBtns.click(function() { // ID откуда кливаем
+    $('html, body').animate({
+    scrollTop: $(".buy-form").offset().top // класс объекта к которому приезжаем
+    }, 1000); // Скорость прокрутки
+   });
