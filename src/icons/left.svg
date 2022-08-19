@@ -1,0 +1,13 @@
+<svg width="36" height="36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+ <title>arrow-line</title>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect transform="rotate(-90 73.29420471191408,44.21844482421876) " x="55.2942" y="26.21844" fill="#ffffff" id="svg_2" fill-opacity="0" height="36" width="36"/>
+  <path transform="rotate(-90 18.000000000000004,18) " fill="#ffffff" id="svg_1" class="clr-i-outline clr-i-outline-path-1" d="m27.70947,15.64l-9.66,-9.61l-9.66,9.61a1,1 0 1 0 1.41,1.39l7.25,-7.19l0,19.13a1,1 0 1 0 2,0l0,-19.13l7.25,7.19a1,1 0 0 0 1.41,-1.42l0,0.03z"/>
+ </g>
+</svg>
