@@ -15,7 +15,7 @@ function getCountdown(){
     minutes = pad( parseInt(seconds_left / 60) );
     seconds = pad( parseInt( seconds_left % 60 ) );
  
-    countdown.innerHTML = "<p>ends after</p> : <span>" + minutes + "</span> minutes <span>" + seconds + "</span> seconds"; 
+    countdown.innerHTML = "<p>ends after :</p> <span>" + minutes + "</span> minutes <span>" + seconds + "</span> seconds"; 
 }
 function pad(n) {
     return (n < 10 ? '0' : '') + n;

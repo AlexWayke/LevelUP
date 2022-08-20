@@ -150,13 +150,19 @@
                         <div class="buy-product">
                             <img src="/src/product.png" alt="">
                         </div>
-                        <div class="buy-price--new">1000 ¥ <span>new*</span></div>
+                        <div class="buy-price--new"> <span class="buy-price--blick"></span> 1000 ¥<span class="buy-price--flag">new*</span></div>
                         <div class="buy-price--old">999 ¥</div>
                     </div>
                     <div class="buy-row">
                         <form class="buy-form" action="#">
-                            <input class="buy-input" type="text" name="name" placeholder="Name">
-                            <input class="buy-input" type="tel" name="tel" placeholder="Telephone">
+                            <div class="buy-input">
+                                <input type="text" name="name" placeholder="Name" required>
+                                <label for="name">John Sina</label>
+                            </div>
+                            <div class="buy-input">
+                                <input class="tel" type="tel" name="tel" pattern="^((\+7|7|8)+([0-9]){10})$" placeholder="Phone" required>
+                                <label for="tel">+7999999999</label>
+                            </div>
                             <button class="btn-to-form">ЗАКАЗАТЬ</button>
                         </form>
                     </div>

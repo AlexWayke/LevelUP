@@ -31,6 +31,7 @@ body {
 .btn-to-form {
     padding: 20px 40px;
     width: fit-content;
+    border-radius: 5px;
 
     font-size: 1.8em;
     background-color: #E8B300;
@@ -183,8 +184,6 @@ body {
     position: relative;
     padding: 0 15px;
 
-    &-wrapper {
-    }
     &-items {
         display: grid;
         grid-template-columns: 1fr 200px;
@@ -201,6 +200,8 @@ body {
             width: 200px;
             height: 200px;
             border-radius: 50%;
+            box-sizing: border-box;
+            border: 2px #fff solid;
             overflow: hidden;
             margin-bottom: 20px;
             & img {
@@ -515,6 +516,7 @@ z-index: 20;
 
 .buy {
     background-color:#51515a;
+    z-index: 20;
     
     &-wrapper {
         display: flex;
@@ -549,6 +551,8 @@ z-index: 20;
     &-rows {
         display: flex;
         flex-direction: row;
+        margin: 0 auto;
+        width: 100%;
     }
     &-row {
         width: 50%;
@@ -559,26 +563,47 @@ z-index: 20;
     &-product {
         margin-bottom: 20px;
         & img {
+            object-fit: contain;
         }
     }
     &-price--new {        
         font-size: 3.6em;
         font-weight: 700;
-        color: #E8B300;
+        color: #fff;
+        overflow: hidden;
+        position: relative;
 
         width: fit-content;
         padding: 10px 50px;
         margin: 0 auto 20px;
-        background-color: #17171E;
+        background-color: #E8B300;
         border-radius: 5px;
         position: relative;
-            & span {
-                position: absolute;
-                bottom: 2px;
-                right: 2px;
-                font-size: 0.5em;
+    }
+    &-price--flag {
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        font-size: 0.5em;
+    }
+    &-price--blick {
+        position: absolute;
+        top: 0;
+        left: -150%;
+        height: 100%;
+        width: 45px;
+        transform: skewX(-45deg);
+        animation: flareAnimation;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+        animation: flareAnimation 3s infinite linear;
+        @keyframes flareAnimation {
+            0% {
+                left: -150%;
             }
-
+            100% {
+                left: 150%
+            }
+        }
     }
     &-price--old {
         font-size: 2.4em;
@@ -606,18 +631,86 @@ z-index: 20;
         justify-content: center;
         gap: 30px;
     }
+
     &-input {
         width: 400px;
-        height: 80px;
-        background-color: #51515a;
-        border: 0;
-        border-bottom: 2px solid #fff;
-        box-sizing: border-box;
-        padding: 0 20px;
-        font-size: 1.8em;
-        position: relative;
-        &:focus {
-
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+    
+        & input {
+            width: 100%;
+            box-sizing: border-box;
+            height: 80px;
+            background-color: inherit;
+            border: 0;
+            box-sizing: border-box;
+            border-bottom: 2px solid #fff;
+            padding: 0 20px;
+            font-size: 1.8em;
+            text-align: left;
+            z-index: 25;
+            &:focus {
+                outline: none;
+            }
+            &:valid:not(:placeholder-shown) {
+                border-bottom: 2px solid #fff;
+            }
+            &:invalid:not(:placeholder-shown) {
+                border-bottom: 2px solid red;
+            }
+            
+        }
+        & label {
+            display: block;
+            color: rgba(255, 255, 255, 0.432);
+            transition: 0.5s;
+            transform: translateY(-60px);
+            margin-left: auto;
+            margin-bottom: auto;
+            z-index: 20;
+            font-size: 0;
+        }
+    }
+    &-input input:focus + label,
+            input:valid + label {
+        font-size: 1em;
+        transition: 0.5s;
+    }
+    @media (max-width: 911px) {
+        &-rows {
+            justify-content: space-around;
+            margin: 0 auto;
+        }
+        &-row:first-child {
+            width: fit-content;
+        }
+    }
+    @media (max-width: 761px) {
+        &-rows {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    @media (max-width: 531px) {
+        &-timer--count p {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+    @media (max-width: 451px) {
+        &-rows {
+            max-width: 300px;
+        }
+        &-input {
+            width: 100%;
+        }
+        &-row {
+            width: 100%;
+        }
+        &-product img {
+            width: 200px;
+            height: auto;
         }
     }
 }

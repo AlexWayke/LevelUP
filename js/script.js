@@ -1,6 +1,6 @@
 const toBottomBtns = $(".btn-to-form");
-toBottomBtns.click(function() { // ID откуда кливаем
+toBottomBtns.click(function() {
     $('html, body').animate({
-    scrollTop: $(".buy-form").offset().top // класс объекта к которому приезжаем
+    scrollTop: $(".buy-form").offset().top
     }, 1000); // Скорость прокрутки
-   });
+});

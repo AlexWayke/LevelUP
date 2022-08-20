@@ -57,6 +57,10 @@ button {
   cursor: pointer;
 }
 
+input {
+  all: unset;
+}
+
 body {
   font-family: Montserrat;
   color: #fff;
@@ -85,6 +89,7 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  border-radius: 5px;
   font-size: 1.8em;
   background-color: #E8B300;
   transition: background-color 0.3s;
@@ -241,6 +246,8 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px #fff solid;
   overflow: hidden;
   margin-bottom: 20px;
 }
@@ -522,6 +529,7 @@ body {
 
 .buy {
   background-color: #51515a;
+  z-index: 20;
 }
 .buy-wrapper {
   display: flex;
@@ -554,6 +562,8 @@ body {
 .buy-rows {
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
+  width: 100%;
 }
 .buy-row {
   width: 50%;
@@ -564,24 +574,59 @@ body {
 .buy-product {
   margin-bottom: 20px;
 }
+.buy-product img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .buy-price--new {
   font-size: 3.6em;
   font-weight: 700;
-  color: #E8B300;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 10px 50px;
   margin: 0 auto 20px;
-  background-color: #17171E;
+  background-color: #E8B300;
   border-radius: 5px;
   position: relative;
 }
-.buy-price--new span {
+.buy-price--flag {
   position: absolute;
   bottom: 2px;
   right: 2px;
   font-size: 0.5em;
+}
+.buy-price--blick {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  height: 100%;
+  width: 45px;
+  transform: skewX(-45deg);
+  -webkit-animation: flareAnimation;
+          animation: flareAnimation;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+  -webkit-animation: flareAnimation 3s infinite linear;
+          animation: flareAnimation 3s infinite linear;
+}
+@-webkit-keyframes flareAnimation {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+@keyframes flareAnimation {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
 }
 .buy-price--old {
   font-size: 2.4em;
@@ -611,12 +656,94 @@ body {
 }
 .buy-input {
   width: 400px;
-  height: 80px;
-  background-color: #51515a;
-  border: 0;
-  border-bottom: 2px solid #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.buy-input input {
+  width: 100%;
   box-sizing: border-box;
+  height: 80px;
+  background-color: inherit;
+  border: 0;
+  box-sizing: border-box;
+  border-bottom: 2px solid #fff;
   padding: 0 20px;
   font-size: 1.8em;
-  position: relative;
+  text-align: left;
+  z-index: 25;
+}
+.buy-input input:focus {
+  outline: none;
+}
+.buy-input input:valid:not(:-moz-placeholder-shown) {
+  border-bottom: 2px solid #fff;
+}
+.buy-input input:valid:not(:-ms-input-placeholder) {
+  border-bottom: 2px solid #fff;
+}
+.buy-input input:valid:not(:placeholder-shown) {
+  border-bottom: 2px solid #fff;
+}
+.buy-input input:invalid:not(:-moz-placeholder-shown) {
+  border-bottom: 2px solid red;
+}
+.buy-input input:invalid:not(:-ms-input-placeholder) {
+  border-bottom: 2px solid red;
+}
+.buy-input input:invalid:not(:placeholder-shown) {
+  border-bottom: 2px solid red;
+}
+.buy-input label {
+  display: block;
+  color: rgba(255, 255, 255, 0.432);
+  transition: 0.5s;
+  transform: translateY(-60px);
+  margin-left: auto;
+  margin-bottom: auto;
+  z-index: 20;
+  font-size: 0;
+}
+.buy-input input:focus + label,
+.buy input:valid + label {
+  font-size: 1em;
+  transition: 0.5s;
+}
+@media (max-width: 911px) {
+  .buy-rows {
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  .buy-row:first-child {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (max-width: 761px) {
+  .buy-rows {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 531px) {
+  .buy-timer--count p {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 451px) {
+  .buy-rows {
+    max-width: 300px;
+  }
+  .buy-input {
+    width: 100%;
+  }
+  .buy-row {
+    width: 100%;
+  }
+  .buy-product img {
+    width: 200px;
+    height: auto;
+  }
 }

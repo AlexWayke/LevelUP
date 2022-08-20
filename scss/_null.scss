@@ -48,3 +48,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   считают, что необходимо оставлять стрелочный вид для кнопок */
   cursor: pointer;
 }
+input {
+  all: unset;
+}
